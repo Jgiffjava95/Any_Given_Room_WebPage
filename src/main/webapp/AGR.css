@@ -10,6 +10,10 @@ body {
 	color: #FFADDA;
 }
 
+.merchBG {
+	background-color: #FFADDA;
+}
+
 .showsTableFontSizing {
 	font-size: 15px;
 }
@@ -49,6 +53,10 @@ h1, h2 {
 }
 
 .card {
+	border-radius: 0;
+}
+
+.cardBG {
 	background-color: rgba(0, 0, 0, 0.8) !important;
 }
 

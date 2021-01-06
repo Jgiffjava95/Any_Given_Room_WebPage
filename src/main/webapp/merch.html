@@ -1,1 +1,65 @@
-MERCH TEST
+
+<nav class="navbar navbar-expand justify-content-center"
+	ng-init="getInventory()">
+	<div class="fas fa-shopping-cart fa-3x navTextPink my-3"></div>
+</nav>
+<div class="merchBG">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-sm-3 my-3" ng-repeat="i in items">
+				<div class="card text-center">
+					<div class="card-header">{{i.itemName}}</div>
+					<div class="card-body">
+						<img class="responsiveBioImg" src="./images/vintageLogo.jpg">
+					</div>
+					<div class="card-footer">
+						<div class="container">
+							<!-- Button to Open the Modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#myModal">Open modal</button>
+
+							<!-- The Modal -->
+							<div class="modal fade" id="myModal">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h4 class="">{{i.itemName}}</h4>
+											<button type="button" class="close far fa-times-circle my-auto" data-dismiss="modal"></button>
+										</div>
+
+										<div class="container">
+											<div class="row">
+												<div class="col-sm-6">
+													<img class="responsiveBioImg"
+														src="./images/vintageLogo.jpg">
+												</div>
+												<div class="col-sm-6 my-3">
+													<div>{{i.itemDesc}}</div>
+
+												</div>
+												<nav class="navbar navbar-expand">
+													<div class="nav-item float-left"><b>${{i.itemPrice}}</b>
+														USD</div>
+													<div
+														class="nav-item fas fa-shopping-cart fa-2x float-right navTextPink"></div>
+
+
+												</nav>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

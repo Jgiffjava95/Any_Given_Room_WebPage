@@ -9,9 +9,9 @@ import com.amazonaws.services.sns.model.SubscribeRequest;
 
 public class AgrAws {
 	
-	private static String awsTopicARN = "";	
+	private static String awsTopicARN = "arn:aws:sns:us-east-1:478455282367:AnyGivenTopic";	
 	private static BasicAWSCredentials awsCreds = new BasicAWSCredentials
-			("", "");
+			("AKIAJQVWEKAKLQMLI7UQ", "1sisproKdIMnxLUSJH0Ue6KwpHYASwImHuOcnBiX");
 	
 	
 	private static AmazonSNS snsClient = 

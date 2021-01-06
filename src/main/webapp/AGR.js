@@ -1,19 +1,19 @@
-var AGRwebapp = angular.module("AGRwebapp", ["ngRoute"]);
+var AGRwebapp = angular.module('AGRwebapp', ['ngRoute']);
 
 AGRwebapp.config(function($routeProvider) {
   $routeProvider
-  .when("/", {
-    templateUrl : "home.html"
-}).when("/memberBio", {
-	templateUrl : "memberBio.html"
-}).when("/shows", {
-	templateUrl : "shows.html"
-}).when("/merch", {
-	templateUrl : "merch.html"
+  .when('/', {
+    templateUrl : 'home.html'
+}).when('/memberBio', {
+	templateUrl :'memberBio.html'
+}).when('/shows', {
+	templateUrl : 'shows.html'
+}).when('/merch', {
+	templateUrl : 'merch.html'
 	});
   });
 
-AGRwebapp.controller("AGRwebappcontroller", function($scope, $http) {
+AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	
 	$scope.mailForm = {};
 	
@@ -22,7 +22,7 @@ AGRwebapp.controller("AGRwebappcontroller", function($scope, $http) {
 		$scope.jsonObject = angular.toJson($scope.mailForm, false);
 		console.log('new email: ' + $scope.jsonObject);		
 		
-		$http.post("/AGRwebapp/webapi/agrapi/sub", $scope.jsonObject)
+		$http.post('/AGRwebapp/webapi/agrapi/sub', $scope.jsonObject)
 		.then(
 				function success(response) {	
 					console.log('status: ' + response.status);
@@ -34,6 +34,16 @@ AGRwebapp.controller("AGRwebappcontroller", function($scope, $http) {
 				}
 		);
 		
+	}
+	
+	$scope.getInventory = function() {
+		$http.get('/AGRwebapp/webapi/agrapi')
+  		.then(
+				function(response) {
+    				$scope.items = response.data;
+					console.log($scope.items[0]);
+  			}
+		);
 	}
 		
 
