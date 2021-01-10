@@ -28,7 +28,6 @@ public class Controller {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Item> getInventory() {
-		System.out.println("Get Called.");
 		return dbHandler.getItems();		
 	}
 }

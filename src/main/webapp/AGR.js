@@ -10,12 +10,17 @@ AGRwebapp.config(function($routeProvider) {
 	templateUrl : 'shows.html'
 }).when('/merch', {
 	templateUrl : 'merch.html'
+}).when('/merchItem', {
+	templateUrl : 'merchItem.html'
 	});
   });
 
 AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	
+	
 	$scope.mailForm = {};
+	$scope.shoppingCart = [];
+	$scope.shoppingCartItemTempId = 0;
 	
 	$scope.subscribe = function() {
 		
@@ -41,9 +46,25 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
   		.then(
 				function(response) {
     				$scope.items = response.data;
-					console.log($scope.items[0]);
   			}
 		);
+	}
+	
+	$scope.selectItemForItemModal = function(selectedItem) {
+		$scope.selectedModalItem = {itemId: selectedItem.itemId, 
+									itemName: selectedItem.itemName, 
+									itemPrice: selectedItem.itemPrice, 
+									itemDesc: selectedItem.itemDesc};
+									console.log($scope.selectedModalItem);
+	}
+	
+	$scope.addToCart = function() {
+		$scope.shoppingCartItemTempId++;
+		$scope.itemForShoppingCart = {tempId: $scope.shoppingCartItemTempId, 
+									  itemName: $scope.selectedModalItem.itemName,
+									  itemPrice: $scope.selectedModalItem.itemPrice};
+		$scope.shoppingCart.push($scope.itemForShoppingCart);
+		console.log($scope.shoppingCart);
 	}
 		
 
