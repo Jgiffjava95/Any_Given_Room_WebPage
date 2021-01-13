@@ -6,12 +6,26 @@ public class Item {
 	private String itemName;
 	private int itemPrice;
 	private String itemDesc;
+	private boolean hasVariant;
+	private boolean hasXS;
+	private boolean hasS;
+	private boolean hasM;
+	private boolean hasL;
+	private boolean hasXL;
 	
-	public Item(int itemId, String itemName, int itemPrice, String itemDesc) {
+	public Item(int itemId, String itemName, int itemPrice, String itemDesc, boolean hasVariant, boolean hasXS,
+			boolean hasS, boolean hasM, boolean hasL, boolean hasXL) {
+		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.itemPrice = itemPrice;
 		this.itemDesc = itemDesc;
+		this.hasVariant = hasVariant;
+		this.hasXS = hasXS;
+		this.hasS = hasS;
+		this.hasM = hasM;
+		this.hasL = hasL;
+		this.hasXL = hasXL;
 	}
 
 	public int getItemId() {
@@ -44,6 +58,54 @@ public class Item {
 
 	public void setItemDesc(String itemDesc) {
 		this.itemDesc = itemDesc;
-	}	
-	
+	}
+
+	public boolean isHasVariant() {
+		return hasVariant;
+	}
+
+	public void setHasVariant(boolean hasVariant) {
+		this.hasVariant = hasVariant;
+	}
+
+	public boolean isHasXS() {
+		return hasXS;
+	}
+
+	public void setHasXS(boolean hasXS) {
+		this.hasXS = hasXS;
+	}
+
+	public boolean isHasS() {
+		return hasS;
+	}
+
+	public void setHasS(boolean hasS) {
+		this.hasS = hasS;
+	}
+
+	public boolean isHasM() {
+		return hasM;
+	}
+
+	public void setHasM(boolean hasM) {
+		this.hasM = hasM;
+	}
+
+	public boolean isHasL() {
+		return hasL;
+	}
+
+	public void setHasL(boolean hasL) {
+		this.hasL = hasL;
+	}
+
+	public boolean isHasXL() {
+		return hasXL;
+	}
+
+	public void setHasXL(boolean hasXL) {
+		this.hasXL = hasXL;
+	}
+		
 }
