@@ -19,7 +19,6 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	$scope.mailForm = {};
 	$scope.shoppingCart = [];
 	$scope.shoppingCartItemTempId = 0;
-	$scope.selectedOptionSize = "";
 	
 	$scope.subscribe = function() {
 		
@@ -56,42 +55,22 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 									itemPrice: selectedItem.itemPrice, 
 									itemDesc: selectedItem.itemDesc,
 									hasVariant: selectedItem.hasVariant,
-									hasXS: selectedItem.hasXS,
-									hasS: selectedItem.hasS,
-									hasM: selectedItem.hasM,
-									hasL: selectedItem.hasL,
-									hasXL: selectedItem.hasXL};
+									variants: selectedItem.variants};
 									console.log($scope.selectedModalItem);
 									
 		if ($scope.selectedModalItem.hasVariant == true) {
-			document.getElementById("sizesOptions").style.visibility = "visible";
-			if ($scope.selectedModalItem.hasXS == true) {
-				$scope.dropDownContent.push("XS");
-			}
-			if ($scope.selectedModalItem.hasS == true) {
-				$scope.dropDownContent.push("S");
-			}
-			if ($scope.selectedModalItem.hasM == true) {
-				$scope.dropDownContent.push("M");
-			}
-			if ($scope.selectedModalItem.hasL == true) {
-				$scope.dropDownContent.push("L");
-			}
-			if ($scope.selectedModalItem.hasXL == true) {
-				$scope.dropDownContent.push("XL");
-			}
-						
+			document.getElementById('sizesOptions').style.visibility = 'visible';					
 		} else {
-			document.getElementById("sizesOptions").style.visibility = "hidden";
+			document.getElementById('sizesOptions').style.visibility = 'hidden';
 		}
 	}
 	
 	$scope.addToCart = function() {
-		$scope.shoppingCartItemTempId++;
-		$scope.itemForShoppingCart = {tempId: $scope.shoppingCartItemTempId, 
+		$scope.itemCartId++;
+		$scope.itemForShoppingCart = {tempId: $scope.itemCartId, 
 									  itemName: $scope.selectedModalItem.itemName,
 									  itemPrice: $scope.selectedModalItem.itemPrice,
-								      selectedOptionSize: $scope.selectedOptionSize}
+								      selectedVariant: $scope.itemVariant}
 		$scope.shoppingCart.push($scope.itemForShoppingCart);
 		console.log($scope.shoppingCart);
 	}

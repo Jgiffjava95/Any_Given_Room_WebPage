@@ -17,6 +17,7 @@ public class MockDB {
 		
 		for (Item i : DB)
 		{	
+			i.setVariants(i.checkForVariants());
 			gottenItems.add(i);
 		}
 		return gottenItems;

@@ -16,11 +16,10 @@
 						<img class="responsiveBioImg" src="./images/vintageLogo.jpg">
 					</div>
 					<div class="card-footer">
-						<div class="container">
 							<a type="button" class="far fa-eye fa-3x gglplyIconColor"
 								ng-click="selectItemForItemModal(i)" data-toggle="modal"
 								data-target="#itemModal"></a>
-						</div>
+
 
 					</div>
 				</div>
@@ -55,7 +54,7 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="sci in shoppingCart">
-									<td>{{sci.itemName}} - {{sci.selectedOptionSize}}</td>
+									<td>{{sci.itemName}} {{sci.selectedOptionSize}}</td>
 									<td>{{N/A}}</td>
 									<td>{{sci.itemPrice}}</td>
 								</tr>
@@ -103,11 +102,12 @@
 				<nav class="navbar navbar-expand">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item" id="sizesOptions">
-							<select ng-model="selectedOptionSize">
-								<option ng-repeat="ddc in dropDownContent">{{ddc}}</option>
-								{{selectedOptionSize}}
-							</select>
-
+						
+						<select ng-model="itemVariant" ng-options="variant for variant in selectedModalItem.variants">
+						</select>
+						
+						
+						
 						</li>
 						<li class="nav-item"><b>${{selectedModalItem.itemPrice}}</b>
 							USD</li>

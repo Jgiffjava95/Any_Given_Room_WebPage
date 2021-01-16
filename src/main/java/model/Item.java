@@ -1,7 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Item {
-	
+
 	private int itemId;
 	private String itemName;
 	private int itemPrice;
@@ -12,7 +14,8 @@ public class Item {
 	private boolean hasM;
 	private boolean hasL;
 	private boolean hasXL;
-	
+	private ArrayList<String> variants;
+
 	public Item(int itemId, String itemName, int itemPrice, String itemDesc, boolean hasVariant, boolean hasXS,
 			boolean hasS, boolean hasM, boolean hasL, boolean hasXL) {
 		super();
@@ -107,5 +110,41 @@ public class Item {
 	public void setHasXL(boolean hasXL) {
 		this.hasXL = hasXL;
 	}
-		
+
+	public ArrayList<String> getVariants() {
+		return variants;
+	}
+
+	public void setVariants(ArrayList<String> variants) {
+		this.variants = variants;
+	}
+
+	public ArrayList<String> checkForVariants() {
+
+		ArrayList<String> variants = new ArrayList<String>();
+
+		if (hasVariant == true) {
+			if (hasXS == true) {
+				variants.add("XS");
+			}
+
+			if (hasS == true) {
+				variants.add("S");
+			}
+
+			if (hasM == true) {
+				variants.add("M");
+			}
+
+			if (hasL == true) {
+				variants.add("L");
+			}
+
+			if (hasXL == true) {
+				variants.add("XL");
+			}
+		}
+		return variants;
+	}
+
 }
