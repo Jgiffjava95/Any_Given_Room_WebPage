@@ -13,7 +13,7 @@
 				<div class="card text-center">
 					<div class="card-header">{{i.itemName}}</div>
 					<div class="card-body">
-						<img class="responsiveBioImg" src="./images/vintageLogo.jpg">
+						<img class="responsiveBioImg" ng-src="{{i.itemImage}}">
 					</div>
 					<div class="card-footer">
 							<a type="button" class="far fa-eye fa-3x gglplyIconColor"
@@ -90,7 +90,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
-							<img class="responsiveBioImg" src="./images/vintageLogo.jpg">
+							<img class="responsiveBioImg" ng-src="{{selectedModalItem.itemImage}}">
 						</div>
 						<div class="col-sm-6">{{selectedModalItem.itemDesc}}</div>
 					</div>
@@ -122,3 +122,4 @@
 
 	</div>
 </div>
+

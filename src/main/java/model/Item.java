@@ -8,6 +8,7 @@ public class Item {
 	private String itemName;
 	private int itemPrice;
 	private String itemDesc;
+	private String itemImage;
 	private boolean hasVariant;
 	private boolean hasXS;
 	private boolean hasS;
@@ -16,13 +17,14 @@ public class Item {
 	private boolean hasXL;
 	private ArrayList<String> variants;
 
-	public Item(int itemId, String itemName, int itemPrice, String itemDesc, boolean hasVariant, boolean hasXS,
-			boolean hasS, boolean hasM, boolean hasL, boolean hasXL) {
+	public Item(int itemId, String itemName, int itemPrice, String itemDesc, String itemImage, boolean hasVariant,
+			boolean hasXS, boolean hasS, boolean hasM, boolean hasL, boolean hasXL) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.itemPrice = itemPrice;
 		this.itemDesc = itemDesc;
+		this.itemImage = itemImage;
 		this.hasVariant = hasVariant;
 		this.hasXS = hasXS;
 		this.hasS = hasS;
@@ -61,6 +63,14 @@ public class Item {
 
 	public void setItemDesc(String itemDesc) {
 		this.itemDesc = itemDesc;
+	}
+
+	public String getItemImage() {
+		return itemImage;
+	}
+
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
 	}
 
 	public boolean isHasVariant() {
