@@ -19,6 +19,9 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	$scope.mailForm = {};
 	$scope.shoppingCart = [];
 	$scope.shoppingCartItemTempId = 0;
+	$scope.orderData = {};
+	$scope.itemCartId = 0;
+	$scope.itemOptions = { chosenVariant: "" };
 
 	$scope.subscribe = function() {
 
@@ -49,7 +52,6 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	}
 
 	$scope.selectItemForItemModal = function(selectedItem) {
-		$scope.dropDownContent = [];
 		$scope.selectedModalItem = {
 			itemId: selectedItem.itemId,
 			itemName: selectedItem.itemName,
@@ -59,26 +61,36 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 			hasVariant: selectedItem.hasVariant,
 			variants: selectedItem.variants
 		};
-		console.log($scope.selectedModalItem);
-
-		if ($scope.selectedModalItem.hasVariant == true) {
-			document.getElementById('sizesOptions').style.visibility = 'visible';
-		} else {
-			document.getElementById('sizesOptions').style.visibility = 'hidden';
-		}
 	}
 
 
 	$scope.addToCart = function() {
 		$scope.itemCartId++;
+		var isUnique = true;
 		$scope.itemForShoppingCart = {
 			tempId: $scope.itemCartId,
 			itemName: $scope.selectedModalItem.itemName,
 			itemPrice: $scope.selectedModalItem.itemPrice,
-			selectedVariant: $scope.itemVariant
+			itemImage: $scope.selectedModalItem.itemImage,
+			itemVariant: $scope.itemOptions.chosenVariant,
+			itemQuan: 1
 		}
-		$scope.shoppingCart.push($scope.itemForShoppingCart);
-		console.log($scope.shoppingCart);
+
+		if ($scope.shoppingCart.length == 0) {
+			$scope.shoppingCart.push($scope.itemForShoppingCart);
+		} else {
+			for (i = 0; i < $scope.shoppingCart.length; i++) {
+				if ($scope.shoppingCart[i].itemName == $scope.itemForShoppingCart.itemName &&
+					$scope.shoppingCart[i].itemVariant == $scope.itemForShoppingCart.itemVariant) {
+					$scope.shoppingCart[i].itemQuan++;
+					isUnique = false;
+				}
+			}
+			if (isUnique == true) {
+				$scope.shoppingCart.push($scope.itemForShoppingCart);
+			}
+		}
+
 	}
 
 });

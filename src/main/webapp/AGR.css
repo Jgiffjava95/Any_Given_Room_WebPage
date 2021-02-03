@@ -158,6 +158,18 @@ a:hover {
 	border: 4px solid white;
 }
 
+.responsiveModalImg {
+	width: 100%;
+	max-width: 1000px;
+	height: auto;
+}
+
+.cartItemImage {
+	width: 100%;
+	max-width: 200px;
+	height: auto;
+}
+
 .video-container {
 	position: relative;
 	padding-bottom: 56.25%;

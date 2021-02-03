@@ -16,16 +16,15 @@
 						<img class="responsiveBioImg" ng-src="{{i.itemImage}}">
 					</div>
 					<div class="card-footer">
-							<a type="button" class="far fa-eye fa-3x gglplyIconColor"
-								ng-click="selectItemForItemModal(i)" data-toggle="modal"
-								data-target="#itemModal"></a>
+						<a type="button" class="far fa-eye fa-3x gglplyIconColor"
+							ng-click="selectItemForItemModal(i)" data-toggle="modal"
+							data-target="#itemModal"></a>
 
 
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 
@@ -42,25 +41,31 @@
 
 			<!-- Modal body -->
 			<div class="modal-body">
-				<div class="container">
-					<div>
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Item</th>
-									<th>Quantity</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="sci in shoppingCart">
-									<td>{{sci.itemName}} {{sci.selectedOptionSize}}</td>
-									<td>{{N/A}}</td>
-									<td>{{sci.itemPrice}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+
+
+				<table class="table" ng-repeat="sci in shoppingCart">
+					<td>
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6 text-center">
+									<img class="cartItemImage my-auto" ng-src="{{sci.itemImage}}">
+								</div>
+
+								<div class="col-sm-6">
+									Name: <strong>{{sci.itemName}} {{sci.itemVariant}}</strong> </br>
+									Price: <strong>{{sci.itemPrice}}</strong> </br> Quantity: <strong>{{sci.itemQuan}}</strong>
+									</br>
+									<Button type="button" class="btn btn-danger"
+										ng-click="shoppingCart.splice($index, 1)">Remove</Button>
+								</div>
+							</div>
+						</div>
+					</td>
+				</table>
+
+				<div ng-if="shoppingCart.length == 0"
+					class="text-danger text-center">
+					<Strong>Shopping cart is empty.</Strong>
 				</div>
 			</div>
 
@@ -88,9 +93,10 @@
 			<!-- Modal body -->
 			<div class="modal-body">
 				<div class="container">
-					<div class="row">
+					<div class="row text-center">
 						<div class="col-sm-6">
-							<img class="responsiveBioImg" ng-src="{{selectedModalItem.itemImage}}">
+							<img class="responsiveModalImg"
+								ng-src="{{selectedModalItem.itemImage}}">
 						</div>
 						<div class="col-sm-6">{{selectedModalItem.itemDesc}}</div>
 					</div>
@@ -98,25 +104,29 @@
 			</div>
 
 			<!-- Modal footer -->
-			<div class="modal-footer">
-				<nav class="navbar navbar-expand">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item" id="sizesOptions">
-						
-						<select ng-model="itemVariant" ng-options="variant for variant in selectedModalItem.variants">
-						</select>
-						
-						
-						
-						</li>
-						<li class="nav-item"><b>${{selectedModalItem.itemPrice}}</b>
-							USD</li>
-						<li class="nav-item"><a type="button"
-							class="fas fa-shopping-cart navTextPink fa-2x"
-							ng-click="addToCart()"></a></li>
-					</ul>
+			<div class="modal-footer"></div>
+			<nav class="navbar navbar-expand">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item mx-2"><select
+						ng-model="itemOptions.chosenVariant"
+						ng-show="selectedModalItem.hasVariant">
+							<option ng-repeat="v in selectedModalItem.variants">{{v}}</option>
+					</select></li>
+					<li class="nav-item mx-2"><b>${{selectedModalItem.itemPrice}}</b>
+						USD</li>
+					<li class="nav-item mx-2"><a type="button"
+						class="fas fa-shopping-cart navTextPink fa-2x"
+						ng-click="addToCart()"></a></li>
+				</ul>
 
-				</nav>
+			</nav>
+			<div class="container">
+				<div class="alert alert-success alert-dismissible fade show">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<Strong>{{itemForShoppingCart.itemName}}</Strong> has been added to
+					your cart!
+				</div>
+
 			</div>
 		</div>
 
