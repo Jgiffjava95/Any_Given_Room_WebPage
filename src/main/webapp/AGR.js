@@ -52,6 +52,7 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	}
 
 	$scope.selectItemForItemModal = function(selectedItem) {
+		$scope.displayAddToCartAlert = false;
 		$scope.selectedModalItem = {
 			itemId: selectedItem.itemId,
 			itemName: selectedItem.itemName,
@@ -78,6 +79,7 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 
 		if ($scope.shoppingCart.length == 0) {
 			$scope.shoppingCart.push($scope.itemForShoppingCart);
+			$scope.addToCartAlertFunction($scope.itemForShoppingCart.itemName, $scope.itemForShoppingCart.itemVariant);
 		} else {
 			for (i = 0; i < $scope.shoppingCart.length; i++) {
 				if ($scope.shoppingCart[i].itemName == $scope.itemForShoppingCart.itemName &&
@@ -88,9 +90,35 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 			}
 			if (isUnique == true) {
 				$scope.shoppingCart.push($scope.itemForShoppingCart);
+				$scope.addToCartAlertFunction($scope.itemForShoppingCart.itemName, $scope.itemForShoppingCart.itemVariant);
 			}
 		}
+		$scope.calcTotalPrice();
+	}
 
+	$scope.calcTotalPrice = function() {
+		$scope.orderData.orderTotal = 0;
+		for (i = 0; i < $scope.shoppingCart.length; i++) {
+			console.log($scope.shoppingCart[i].itemPrice);
+			var priceByQuantity = $scope.shoppingCart[i].itemPrice * $scope.shoppingCart[i].itemQuan;
+			$scope.orderData.orderTotal += priceByQuantity;
+
+		}
+	}
+
+	$scope.removeAndUpdateOrder = function(item) {
+		$scope.shoppingCart.splice(item, 1);
+		$scope.calcTotalPrice();
+	}
+
+	$scope.addToCartAlertFunction = function(itemName, itemVariant) {
+
+		if (itemVariant == null) {
+			$scope.itemForAddToCartAlert = itemName;
+		} else {
+			$scope.itemForAddToCartAlert = itemName + " " + itemVariant;
+		}
+		$scope.displayAddToCartAlert = true;
 	}
 
 });

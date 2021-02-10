@@ -1,12 +1,13 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Item {
 
 	private int itemId;
 	private String itemName;
-	private int itemPrice;
+	private double itemPrice;
 	private String itemDesc;
 	private String itemImage;
 	private boolean hasVariant;
@@ -17,7 +18,7 @@ public class Item {
 	private boolean hasXL;
 	private ArrayList<String> variants;
 
-	public Item(int itemId, String itemName, int itemPrice, String itemDesc, String itemImage, boolean hasVariant,
+	public Item(int itemId, String itemName, double itemPrice, String itemDesc, String itemImage, boolean hasVariant,
 			boolean hasXS, boolean hasS, boolean hasM, boolean hasL, boolean hasXL) {
 		super();
 		this.itemId = itemId;
@@ -49,11 +50,11 @@ public class Item {
 		this.itemName = itemName;
 	}
 
-	public int getItemPrice() {
+	public double getItemPrice() {
 		return itemPrice;
 	}
 
-	public void setItemPrice(int itemPrice) {
+	public void setItemPrice(double itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 

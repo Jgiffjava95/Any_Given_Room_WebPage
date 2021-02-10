@@ -56,7 +56,7 @@
 									Price: <strong>{{sci.itemPrice}}</strong> </br> Quantity: <strong>{{sci.itemQuan}}</strong>
 									</br>
 									<Button type="button" class="btn btn-danger"
-										ng-click="shoppingCart.splice($index, 1)">Remove</Button>
+										ng-click="removeAndUpdateOrder($index)">Remove</Button>
 								</div>
 							</div>
 						</div>
@@ -71,8 +71,15 @@
 
 			<!-- Modal footer -->
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Check
-					Out</button>
+				<nav class="navbar navbar-expand">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item mx-2">Order Total: <strong>$ {{orderData.orderTotal}}</strong></li>
+						<li class="nav-item mx-2">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Check
+								Out</button>
+						</li>
+					</ul>
+				</nav>
 			</div>
 
 		</div>
@@ -120,10 +127,9 @@
 				</ul>
 
 			</nav>
-			<div class="container">
+			<div class="container" ng-if="displayAddToCartAlert == true">
 				<div class="alert alert-success alert-dismissible fade show">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<Strong>{{itemForShoppingCart.itemName}}</Strong> has been added to
+					<Strong>{{itemForAddToCartAlert}}</Strong> has been added to
 					your cart!
 				</div>
 
