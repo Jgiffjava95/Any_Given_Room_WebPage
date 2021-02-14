@@ -158,6 +158,12 @@ a:hover {
 	border: 4px solid white;
 }
 
+.card-img-top {
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
+}
+
 .responsiveModalImg {
 	width: 100%;
 	max-width: 1000px;

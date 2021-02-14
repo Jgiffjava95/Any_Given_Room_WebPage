@@ -1,0 +1,29 @@
+<GENERAL>
+* Why is project pom.xml red?
+</GENERAL>
+
+<BACK END>
+* Create Java model for shows.
+* Plug Shows model into shows table.
+* Plug first show in table into Come See Us segment in Home page.
+
+*BigDecimal for money!
+
+*Investigate PayPal API.
+*Create model for a completed order that will be sent to the band members for shipment.
+*Create back end validations that make sure prices of items in submitted order are correct with database item prices.
+</BACK END>
+
+<FRONT END>
+MERCH
+* Make item cards in merch store to be same size regardless of item image size.
+* Validate if an item that has variants actually has a selected variant before allowing addition to cart.
+* Whats up with that added to cart alert?
+* Allow for quantity select before adding to cart.
+* Allow for quantity change on item in shopping cart.
+
+</FRONT END>
+
+<DB>
+*Look into using Amazon AWS for relational database for items and orders.
+</DB>

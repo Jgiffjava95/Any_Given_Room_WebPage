@@ -53,6 +53,7 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 
 	$scope.selectItemForItemModal = function(selectedItem) {
 		$scope.displayAddToCartAlert = false;
+		$scope.variantNotSelected = false;
 		$scope.selectedModalItem = {
 			itemId: selectedItem.itemId,
 			itemName: selectedItem.itemName,
@@ -66,34 +67,40 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 
 
 	$scope.addToCart = function() {
-		$scope.itemCartId++;
-		var isUnique = true;
-		$scope.itemForShoppingCart = {
-			tempId: $scope.itemCartId,
-			itemName: $scope.selectedModalItem.itemName,
-			itemPrice: $scope.selectedModalItem.itemPrice,
-			itemImage: $scope.selectedModalItem.itemImage,
-			itemVariant: $scope.itemOptions.chosenVariant,
-			itemQuan: 1
-		}
-
-		if ($scope.shoppingCart.length == 0) {
-			$scope.shoppingCart.push($scope.itemForShoppingCart);
-			$scope.addToCartAlertFunction($scope.itemForShoppingCart.itemName, $scope.itemForShoppingCart.itemVariant);
+		if ($scope.selectedModalItem.hasVariant && $scope.itemOptions.chosenVariant == "") {
+			$scope.variantNotSelected = true;
 		} else {
-			for (i = 0; i < $scope.shoppingCart.length; i++) {
-				if ($scope.shoppingCart[i].itemName == $scope.itemForShoppingCart.itemName &&
-					$scope.shoppingCart[i].itemVariant == $scope.itemForShoppingCart.itemVariant) {
-					$scope.shoppingCart[i].itemQuan++;
-					isUnique = false;
-				}
+			$scope.itemCartId++;
+			var isUnique = true;
+
+			$scope.itemForShoppingCart = {
+				tempId: $scope.itemCartId,
+				itemName: $scope.selectedModalItem.itemName,
+				itemPrice: $scope.selectedModalItem.itemPrice,
+				itemImage: $scope.selectedModalItem.itemImage,
+				itemVariant: $scope.itemOptions.chosenVariant,
+				itemQuan: 1
 			}
-			if (isUnique == true) {
+
+			if ($scope.shoppingCart.length == 0) {
 				$scope.shoppingCart.push($scope.itemForShoppingCart);
 				$scope.addToCartAlertFunction($scope.itemForShoppingCart.itemName, $scope.itemForShoppingCart.itemVariant);
+			} else {
+				for (i = 0; i < $scope.shoppingCart.length; i++) {
+					if ($scope.shoppingCart[i].itemName == $scope.itemForShoppingCart.itemName &&
+						$scope.shoppingCart[i].itemVariant == $scope.itemForShoppingCart.itemVariant) {
+						$scope.shoppingCart[i].itemQuan++;
+						isUnique = false;
+					}
+				}
+				if (isUnique == true) {
+					$scope.shoppingCart.push($scope.itemForShoppingCart);
+					$scope.addToCartAlertFunction($scope.itemForShoppingCart.itemName, $scope.itemForShoppingCart.itemVariant);
+				}
 			}
+			$scope.calcTotalPrice();
 		}
-		$scope.calcTotalPrice();
+
 	}
 
 	$scope.calcTotalPrice = function() {
@@ -121,6 +128,9 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 		$scope.displayAddToCartAlert = true;
 	}
 
+	$scope.closeCartAlert = function() {
+		$scope.displayAddToCartAlert = false;
+	}
 });
 
 

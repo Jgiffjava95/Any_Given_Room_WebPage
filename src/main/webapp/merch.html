@@ -13,7 +13,7 @@
 				<div class="card text-center">
 					<div class="card-header">{{i.itemName}}</div>
 					<div class="card-body">
-						<img class="responsiveBioImg" ng-src="{{i.itemImage}}">
+						<img class="card-img-top" ng-src="{{i.itemImage}}">
 					</div>
 					<div class="card-footer">
 						<a type="button" class="far fa-eye fa-3x gglplyIconColor"
@@ -36,7 +36,8 @@
 			<!-- Modal Header -->
 			<div class="modal-header">
 				<h4 class="modal-title">Shopping Cart</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<button type="button" class="close fas fa-times"
+					data-dismiss="modal"></button>
 			</div>
 
 			<!-- Modal body -->
@@ -73,7 +74,8 @@
 			<div class="modal-footer">
 				<nav class="navbar navbar-expand">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item mx-2">Order Total: <strong>$ {{orderData.orderTotal}}</strong></li>
+						<li class="nav-item mx-2">Total: <strong>$
+								{{orderData.orderTotal}}</strong></li>
 						<li class="nav-item mx-2">
 							<button type="button" class="btn btn-danger" data-dismiss="modal">Check
 								Out</button>
@@ -94,7 +96,8 @@
 			<!-- Modal Header -->
 			<div class="modal-header">
 				<h4 class="modal-title">{{selectedModalItem.itemName}}</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<button type="button" class="close fas fa-times"
+					data-dismiss="modal"></button>
 			</div>
 
 			<!-- Modal body -->
@@ -127,10 +130,19 @@
 				</ul>
 
 			</nav>
+			<div class="container" ng-if="variantNotSelected == true">
+				<div class="alert alert-danger fade show">
+					<Strong>Size/Option required.</Strong>
+					
+				</div>
+
+			</div>
 			<div class="container" ng-if="displayAddToCartAlert == true">
-				<div class="alert alert-success alert-dismissible fade show">
-					<Strong>{{itemForAddToCartAlert}}</Strong> has been added to
-					your cart!
+				<div class="alert alert-success fade show">
+					<button type="button" class="close fas fa-times"
+						ng-click="closeCartAlert()"></button>
+					<Strong>{{itemForAddToCartAlert}}</Strong> has been added to your
+					cart!
 				</div>
 
 			</div>
