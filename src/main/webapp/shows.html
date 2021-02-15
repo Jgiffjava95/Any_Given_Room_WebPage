@@ -1,33 +1,21 @@
 
-	<div class="container">
+	<div class="container" ng-init="getShowList()">
 		<div class="table-responsive showsTableFontSizing my-3">
 			<table class="table table-bordered text-white">
 				<thead>
 					<tr>
 						<th>Show</th>
 						<th>Location</th>
-						<th>Date</th>
+						<th>Date/Time</th>
 						<th>Entry-Fee</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Place 1 place 2 place 3</td>
-						<td>Street 123</td>
-						<td>01/01/2020</td>
-						<td>$10</td>
-					</tr>
-					<tr>
-						<td>Place 2</td>
-						<td>Street 456</td>
-						<td>02/02/2020</td>
-						<td>$20</td>
-					</tr>
-					<tr>
-						<td>Vinos Brewpub</td>
-						<td>Little Rock AR, 923 W 7th St.</td>
-						<td>03/03/2020</td>
-						<td>$15</td>
+					<tr ng-repeat="s in shows">
+						<td>{{s.showName}}</td>
+						<td>{{s.showLocation}}</td>
+						<td>{{s.showDate}}</td>
+						<td>{{s.entryPrice}}</td>
 					</tr>
 				</tbody>
 			</table>

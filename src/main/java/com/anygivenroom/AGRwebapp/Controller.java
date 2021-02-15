@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.Item;
+import model.Show;
 
 @Path("/agrapi")
 public class Controller {
@@ -25,9 +26,17 @@ public class Controller {
 		return Response.snsSubResponse;
 	}
 	
+	@Path("/item")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Item> getInventory() {
 		return dbHandler.getItems();		
+	}
+	
+	@Path("/show")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Show> getShowList() {
+		return dbHandler.getShows();		
 	}
 }

@@ -43,10 +43,19 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 	}
 
 	$scope.getInventory = function() {
-		$http.get('/AGRwebapp/webapi/agrapi')
+		$http.get('/AGRwebapp/webapi/agrapi/item')
 			.then(
 				function(response) {
 					$scope.items = response.data;
+				}
+			);
+	}
+	
+	$scope.getShowList = function () {
+		$http.get('/AGRwebapp/webapi/agrapi/show')
+			.then(
+				function(response) {
+					$scope.shows = response.data;
 				}
 			);
 	}
