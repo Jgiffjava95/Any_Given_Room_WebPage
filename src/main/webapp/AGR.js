@@ -50,14 +50,31 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 				}
 			);
 	}
-	
-	$scope.getShowList = function () {
+
+	$scope.getShowList = function() {
 		$http.get('/AGRwebapp/webapi/agrapi/show')
 			.then(
 				function(response) {
 					$scope.shows = response.data;
+					$scope.sortShowsForUpcomingShow();
 				}
 			);
+	}
+
+	$scope.sortShowsForUpcomingShow = function() {
+		for (i = 0; i < $scope.shows.length; i++) {
+			console.log($scope.shows[i]);
+			if ($scope.shows[i].upcoming == true) {
+				console.log("here");
+				$scope.showForHomePage = {
+					showImage: $scope.shows[i].showImage,
+					showLocation: $scope.shows[i].showLocation,
+					entryPrice: $scope.shows[i].entryPrice,
+					showDate: $scope.shows[i].showDate
+				};
+			}
+		}
+		console.log($scope.showForHomePage)
 	}
 
 	$scope.selectItemForItemModal = function(selectedItem) {

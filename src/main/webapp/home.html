@@ -24,31 +24,28 @@
 	</div>
 </div>
 
-<div class="showBg text-center text-white">
+<div class="showBg text-center text-white" ng-init="getShowList()">
 	<h1 class="mt-0">Come See Us</h1>
 	<div class="container">
 		<div class="card cardBG">
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-6 my-auto">
-						<img class="showPoster" src="./images/new show.jpg">
+						<img class="showPoster" ng-src="{{showForHomePage.showImage}}">
 					</div>
 					<div class="col-sm-6 my-auto">
-							<h1 class="mb-0">When</h1>
-							<hr class="my-0">
-							<p>Friday, February 5th 2020</p>
+						<h1 class="mb-0">When</h1>
+						<hr class="my-0">
+						<p>{{showForHomePage.showDate}}</p>
 
-							<h1 class="mb-0">Where</h1>
-							<hr class="my-0">
-							<p>
-								Vino's Brewpub 72201, Little Rock AR, 923 W 7th St.
-							</p>
+						<h1 class="mb-0">Where</h1>
+						<hr class="my-0">
+						<p>{{showForHomePage.showLocation}}</p>
 
-							<h1 class="mb-0">How</h1>
-							<hr class="my-0">
-							<p>
-								$20 per table. Contact us on facebook for tickets!
-							</p>
+						<h1 class="mb-0">Price</h1>
+						<hr class="my-0">
+						<p>${{showForHomePage.entryPrice}} Contact us on facebook for
+							tickets!</p>
 					</div>
 				</div>
 			</div>

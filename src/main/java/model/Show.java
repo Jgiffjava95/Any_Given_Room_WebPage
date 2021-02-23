@@ -1,23 +1,24 @@
 package model;
 
 public class Show {
-	
+
 	int showId;
 	String showName;
 	String showImage;
 	String showLocation;
 	double entryPrice;
 	String showDate;
-	
-	public Show(int showId, String showName, String showImage, String showLocation, double entryPrice,
-			String showDate) {
-		super();
+	boolean upcoming;
+
+	public Show(int showId, String showName, String showImage, String showLocation, double entryPrice, String showDate,
+			boolean upcoming) {
 		this.showId = showId;
 		this.showName = showName;
 		this.showImage = showImage;
 		this.showLocation = showLocation;
 		this.entryPrice = entryPrice;
 		this.showDate = showDate;
+		this.upcoming = upcoming;
 	}
 
 	public int getShowId() {
@@ -66,6 +67,14 @@ public class Show {
 
 	public void setShowDate(String showDate) {
 		this.showDate = showDate;
-	}	
+	}
+
+	public boolean isUpcoming() {
+		return upcoming;
+	}
+
+	public void setUpcoming(boolean upcoming) {
+		this.upcoming = upcoming;
+	}
 
 }

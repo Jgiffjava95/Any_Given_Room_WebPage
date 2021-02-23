@@ -29,10 +29,10 @@ public class MockDB {
 
 	public ArrayList<Show> getShows() {
 
-		showDB.add(new Show(1, "Vino's", "new show.jpg", "Little Rock, Arkansas 1000 Some Street", 19.99,
-				"2/15/2021 7:00pm"));
-		showDB.add(new Show(2, "Vino's", "new show.jpg", "Little Rock, Arkansas 1000 Some Street", 19.99,
-				"2/15/2021 7:00pm"));
+		showDB.add(new Show(1, "test test", "./images/new show.jpg", "Little Rock, Arkansas 1000 Some Street", 19.99,
+				"2/15/2021 7:00pm", true));
+		showDB.add(new Show(2, "big test", "./images/show demo.jpg", " Vino'sLittle Rock, Arkansas 1000 Some Street", 40.00,
+				"2/15/2021 7:00pm", false));
 
 		ArrayList<Show> gottenShows = new ArrayList<Show>();
 
