@@ -1,7 +1,6 @@
 package model;
 
 public class Show {
-
 	int showId;
 	String showName;
 	String showImage;

@@ -21,12 +21,10 @@ public class AgrAws {
             .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
             .build();
 	
-	public String subToSnsTopic (String email) {
+	public void subToSnsTopic (String email) {
 		
 		SubscribeRequest subToTopic = new SubscribeRequest(awsTopicARN, "email", email); // try catch this
 		snsClient.subscribe(subToTopic);
-		
-		return Response.snsSubResponse;
 	}
 
 }

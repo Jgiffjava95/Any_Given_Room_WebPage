@@ -1,7 +1,7 @@
 package com.anygivenroom.AGRwebapp;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -15,28 +15,27 @@ import model.Show;
 public class Controller {
 	
 	AgrAws awsHandler = new AgrAws();
-	MockDB dbHandler = new MockDB();
+	MockDB mockDBHandler = new MockDB();
+	AgrDao dbHandler = new AgrDao();
 
 	@POST
 	@Path("/sub")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String sub(User subber) {
+	public void sub(User subber) {
 		System.out.println(subber.getEmail());
-		awsHandler.subToSnsTopic(subber.getEmail());
-		return Response.snsSubResponse;
 	}
 	
 	@Path("/item")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Item> getInventory() {
-		return dbHandler.getItems();		
+		return mockDBHandler.getItems();		
 	}
 	
 	@Path("/show")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Show> getShowList() {
-		return dbHandler.getShows();		
+	public List<Show> getShowList() {
+		return dbHandler.getAllShows();		
 	}
 }
