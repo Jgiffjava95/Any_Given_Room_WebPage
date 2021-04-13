@@ -2,7 +2,7 @@
 	<img class="bandGroupPhoto" src="./images/group.jpg">
 </div>
 
-<div class="container text-center text-white">
+<div class="container text-center text-white bottomWhiteBorder">
 	<h1>Who Is Any Given Room?</h1>
 	<div>Any Given Room is an indie rock? pop rock? alternative....?
 		whatever, its all made up and nothing matters, band comprised of 5
@@ -25,7 +25,7 @@
 </div>
 
 <div class="showBg text-center text-white" ng-init="getShowList()">
-	<h1 class="mt-0">Come See Us</h1>
+	<h1 class="">Come See Us</h1>
 	<div class="container">
 		<div class="card cardBG">
 			<div class="card-body">
@@ -58,66 +58,56 @@
 	</div>
 </div>
 
+<div class="container-fluid videoBg text-center">
+
+	<div class="video-holder">
+		<h1 class="text-black">Tension - Live From Palmer Music Co.</h1>
+		<div class="video-container">
+			<iframe class="iframeBorederWhite"
+				src="https://www.youtube.com/embed/bDjCx0KPJTc" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="test"></div>
+</div>
+
+<div class="merchHomeBG text-center">
+	<h1>Purchase Some Drip</h1>
+	NOTICE - This segment is still a WIP.
+
+	<div>
+		<img class="showPoster merchPosterOutline" src="images/Merch Demo.jpg">
+
+	</div>
+
+	<div>
+		<a class="w3-button w3-white my-3" href="#!merch">View Merch Store</a>
+	</div>
+
+</div>
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-6 videoBg text-center">
-			<h1 class="text-black">Watch A Video</h1>
 
-			<div class="video-container">
-				<iframe src="https://www.youtube.com/embed/lKxb67pYGvI"
-					allowfullscreen></iframe>
-			</div>
-
-			</br>
+		<div class="col-sm-6 embed-responsive embed-responsive-16by9">
+			<iframe
+				src="https://open.spotify.com/embed/artist/7KcU34oMka3jv5PZwC6G0f"
+				frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 		</div>
 
-		<div class="col-sm-6 musicBg text-center">
-			<h1 class="text-black">Jam Some Tunes</h1>
-
-			<div class="video-container">
-				<iframe
-					src="https://open.spotify.com/embed/artist/7KcU34oMka3jv5PZwC6G0f"
-					width="300" height="380" frameborder="0" allowtransparency="true"
-					allow="encrypted-media"></iframe>
-			</div>
-
-
-			</br>
-		</div>
-
-		<div class="col-sm-6 merchHomeBG text-center">
-			<h1>Purchase Some Drip</h1>
-			NOTICE - This segment is still a WIP.
-
-			<div>
-				<img class="showPoster merchPosterOutline"
-					src="images/Merch Demo.jpg">
-
-			</div>
-
-			<div>
-				<a class="w3-button w3-white my-3" href="#!merch">View Merch
-					Store</a>
-			</div>
-
-		</div>
-
-		<div class="col-sm-6 text-center text-white my-auto">
-			<div>
-				<h1 class="">Subscribe to our Mailing List!</h1>
-				<div>Sign up and stay up to date with anything Any Given Room!
-					By signing up you will receive a 10% discount on our merch for
-					life! And if you get tired of us? Cancel your subscription at any
-					time.</div>
-				<form>
-					<div class="form-group my-3">
-						<input type="text" class="form-control" placeholder="Enter email"
-							ng-model="mailForm.email">
-					</div>
-					<a class="w3-button w3-black w3-border my-3" type="submit"
-						ng-click="subscribe()">Subscribe</a>
-				</form>
-			</div>
+		<div class="col-sm-6 mailBg text-center text-black">
+			<h1>Subscribe to our Mailing List!</h1>
+			<p>Sign up and stay up to date with anything Any Given Room! By
+				signing up you will receive a 10% discount on our merch for life!
+				And if you get tired of us? Cancel your subscription at any time.
+			<p>
+			<form>
+				<div class="form-group my-3">
+					<input type="text" class="form-control" placeholder="Enter email"
+						ng-model="mailForm.email">
+				</div>
+				<a class="w3-button w3-black w3-border my-3" type="submit"
+					ng-click="subscribe()">Subscribe</a>
+			</form>
 		</div>
 
 	</div>

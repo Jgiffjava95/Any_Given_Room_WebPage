@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DButil {
 
-	private static String connectionURL = "edited out for safety";
+	private static String connectionURL = "jdbc:mysql://agrdb.co4g0adjdiph.us-east-1.rds.amazonaws.com/AgrWebAppData?user=admin&password=AnyGivenR00m";
 
 	public static Connection getConnection() {
 		

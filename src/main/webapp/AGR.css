@@ -18,7 +18,7 @@ body {
 	font-size: 15px;
 }
 
-iframe {
+.iframeBorederWhite {
 	border: 4px solid white;
 }
 
@@ -31,15 +31,27 @@ iframe {
 }
 
 .navButtonSize {
-	font-size:calc(14px + 2vw);
+	font-size: calc(14px + 2vw);
 }
 
 h1, h2 {
 	font-family: 'Dosis';
 }
 
+h1, .test {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
 .videoBg {
 	background-image: url("./images/saxBg.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.mailBg {
+	background-image: url("./images/letter background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -158,10 +170,14 @@ a:hover {
 	border: 4px solid white;
 }
 
+.bottomWhiteBorder {
+	border-bottom: 4px splid white;
+}
+
 .card-img-top {
-    width: 100%;
-    height: 25vh;
-    object-fit: cover;
+	width: 100%;
+	height: 25vh;
+	object-fit: cover;
 }
 
 .responsiveModalImg {
@@ -192,3 +208,12 @@ a:hover {
 	width: 100%;
 	height: 100%;
 }
+
+.video-holder {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	max-width: 1000px;
+	max-height: 563px;
+}
+
