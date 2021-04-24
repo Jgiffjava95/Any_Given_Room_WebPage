@@ -30,10 +30,10 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 		$http.post('/AGRwebapp/webapi/agrapi/sub', $scope.jsonObject)
 			.then(
 				function success(response) {
-					$scope.successResponse = response.data;
+					console.log('return status: ' + response.data.response)
 				},
 				function error(response) {
-					console.log('error, return status: ' + response.status);
+					console.log('return status: ' + response.data.response);
 				}
 			);
 

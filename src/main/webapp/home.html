@@ -100,10 +100,13 @@
 				signing up you will receive a 10% discount on our merch for life!
 				And if you get tired of us? Cancel your subscription at any time.
 			<p>
-			<form>
+				<span class="text-danger"
+					ng-show="subForm.subInput.$touched && subForm.subInput.$invalid"><b>Email
+					field cannot be empty.</b></span>
+			<form name="subForm">
 				<div class="form-group my-3">
-					<input type="text" class="form-control" placeholder="Enter email"
-						ng-model="mailForm.email">
+					<input type="text" name="subInput" class="form-control"
+						placeholder="Enter email" ng-model="mailForm.email" required>
 				</div>
 				<a class="w3-button w3-black w3-border my-3" type="submit"
 					ng-click="subscribe()">Subscribe</a>
