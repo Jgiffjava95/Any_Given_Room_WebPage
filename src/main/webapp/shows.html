@@ -1,23 +1,24 @@
-
-	<div class="container">
-		<div class="table-responsive showsTableFontSizing my-3">
-			<table class="table table-bordered text-white">
-				<thead>
-					<tr>
-						<th>Show</th>
-						<th>Location</th>
-						<th>Date/Time</th>
-						<th>Entry-Fee</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="s in shows">
-						<td>{{s.showName}}</td>
-						<td>{{s.showLocation}}</td>
-						<td>{{s.showDate}}</td>
-						<td>{{s.entryPrice}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+<div class='container-fluid show-bg text-center text-white'>
+	<h1 class="mb-0">Show Dates</h1>
+	<span class="line"></span>
+	<div class="table-responsive showsTableFontSizing my-3">
+		<table class="table table-bg table-bordered text-white">
+			<thead>
+				<tr>
+					<th>Show</th>
+					<th>Location</th>
+					<th>Date/Time</th>
+					<th>Entry-Fee</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="s in shows">
+					<td>{{s.showName}}</td>
+					<td>{{s.showLocation}}</td>
+					<td>{{s.showDate}}</td>
+					<td>{{s.entryPrice}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+</div>

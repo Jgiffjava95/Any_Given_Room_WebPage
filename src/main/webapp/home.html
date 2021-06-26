@@ -4,7 +4,7 @@
 
 <div class="container text-center text-white bottomWhiteBorder">
 	<h1>Who Is Any Given Room?</h1>
-	<div>Any Given Room is an indie rock? pop rock? alternative....?
+	<p>Any Given Room is an indie rock? pop rock? alternative....?
 		whatever, its all made up and nothing matters, band comprised of 5
 		trash pandas and 1 actual brick - you guess who is who - based out of
 		Little Rock, Arkansas. Since its creation in 2017 it has grown and
@@ -17,14 +17,14 @@
 		dissociative thoughts that lurk in the quiet places of your mind, and
 		Fergie. The band includes Dylan Bradley (vocals), Christian Whitehead
 		(drums), Dustin Renfro (bass), Tyler Merriott (guitar), Jeremy Gifford
-		(guitar) and Stephen Sivils (the talent).</div>
+		(guitar) and Stephen Sivils (the talent).</p>
 	<div>
 		<a class="w3-button w3-black w3-border my-3" href="#!memberBio">View
 			Member Bio's</a>
 	</div>
 </div>
 
-<div class="showBg text-center text-white" ng-init="getShowList()">
+<div class="show-bg text-center text-white">
 	<h1 class="">Come See Us</h1>
 	<div class="container">
 		<div class="card cardBG">
@@ -35,15 +35,15 @@
 					</div>
 					<div class="col-sm-6 my-auto">
 						<h1 class="mb-0">When</h1>
-						<hr class="my-0">
+						<span class="line"></span>
 						<p>{{showForHomePage.showDate}}</p>
 
 						<h1 class="mb-0">Where</h1>
-						<hr class="my-0">
+						<span class="line"></span>
 						<p>{{showForHomePage.showLocation}}</p>
 
 						<h1 class="mb-0">Price</h1>
-						<hr class="my-0">
+						<span class="line"></span>
 						<p>${{showForHomePage.entryPrice}} Contact us on facebook for
 							tickets!</p>
 					</div>
@@ -58,43 +58,47 @@
 	</div>
 </div>
 
-<div class="container-fluid videoBg text-center">
-
-	<div class="video-holder">
-		<h1 class="text-black">Tension - Live From Palmer Music Co.</h1>
-		<div class="video-container">
-			<iframe class="iframeBorederWhite"
-				src="https://www.youtube.com/embed/bDjCx0KPJTc" allowfullscreen></iframe>
+<div class="video-bg text-center">
+	<div class="iframe-holder">
+		<h1>Tension - Live From Paler Music Co.</h1>
+		<div class="iframe-container">
+			<iframe src="https://www.youtube.com/embed/bDjCx0KPJTc"
+				allowfullscreen></iframe>
 		</div>
+
 	</div>
-	<div class="test"></div>
 </div>
 
 <div class="merchHomeBG text-center">
-	<h1>Purchase Some Drip</h1>
-	NOTICE - This segment is still a WIP.
+	<div class="container">
+		<div class="row">
 
-	<div>
-		<img class="showPoster merchPosterOutline" src="images/Merch Demo.jpg">
+			<div v>
+				<img class="showPoster merchPosterOutline"
+					src="images/Merch Demo.jpg">
 
+			</div>
+
+			<div class="col-sm-6">
+				<h1>Purchase Some Drip</h1>
+				<a class="w3-button w3-white my-3" href="#!merch">View Merch
+					Store</a>
+			</div>
+		</div>
 	</div>
-
-	<div>
-		<a class="w3-button w3-white my-3" href="#!merch">View Merch Store</a>
-	</div>
-
 </div>
 
 <div class="container-fluid">
 	<div class="row">
-
-		<div class="col-sm-6 embed-responsive embed-responsive-16by9">
-			<iframe
-				src="https://open.spotify.com/embed/artist/7KcU34oMka3jv5PZwC6G0f"
-				frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+		<div class="col-sm-6 text-center music-bg">
+			<div class="iframe-container my-auto">
+				<div class="iframe-holder">
+					<iframe
+						src="https://open.spotify.com/embed/artist/7KcU34oMka3jv5PZwC6G0f"></iframe>
+				</div>
+			</div>
 		</div>
-
-		<div class="col-sm-6 mailBg text-center text-black">
+		<div class="col-sm-6 mail-bg text-black">
 			<h1>Subscribe to our Mailing List!</h1>
 			<p>Sign up and stay up to date with anything Any Given Room! By
 				signing up you will receive a 10% discount on our merch for life!
@@ -102,7 +106,7 @@
 			<p>
 				<span class="text-danger"
 					ng-show="subForm.subInput.$touched && subForm.subInput.$invalid"><b>Email
-					field cannot be empty.</b></span>
+						field cannot be empty.</b></span>
 			<form name="subForm">
 				<div class="form-group my-3">
 					<input type="text" name="subInput" class="form-control"
@@ -112,6 +116,4 @@
 					ng-click="subscribe()">Subscribe</a>
 			</form>
 		</div>
-
 	</div>
-</div>

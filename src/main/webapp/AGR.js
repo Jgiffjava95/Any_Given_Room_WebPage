@@ -11,11 +11,16 @@ AGRwebapp.config(function($routeProvider) {
 			templateUrl: 'shows.html'
 		}).when('/merch', {
 			templateUrl: 'merch.html'
+		}).when('/tickets', {
+			templateUrl: 'tickets.html'
+		}).when('/contact', {
+			templateUrl: 'contact.html'
 		});
 });
 
 AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
-
+	
+	getShowList();
 
 	$scope.mailForm = {};
 	$scope.shoppingCart = [];
@@ -48,7 +53,7 @@ AGRwebapp.controller('AGRwebappcontroller', function($scope, $http) {
 			);
 	}
 
-	$scope.getShowList = function() {
+	function getShowList() {
 		$http.get('/AGRwebapp/webapi/agrapi/show')
 			.then(
 				function(response) {

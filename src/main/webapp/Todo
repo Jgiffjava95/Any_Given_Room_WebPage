@@ -3,9 +3,7 @@
 </GENERAL>
 
 <BACK END>
-* Create Java model for shows.
-* Plug Shows model into shows table.
-* Plug first show in table into Come See Us segment in Home page.
+*Safer way to send admin username and password for aws db?
 
 *BigDecimal for money!
 
@@ -22,8 +20,22 @@ MERCH
 * Allow for quantity select before adding to cart.
 * Allow for quantity change on item in shopping cart.
 
+BUGS
+*mail segment content isnt centered.
+*spotify segment iframe isnt vertically centered.
+*refactor a lot of code to be better.
+*mail bg image is low quality.
+*music bg image is low quality.
+
+ADDITIONS
+*Make real line under shows header and not <hr>
+*make real lines under when, where, price in come see us segment and not <hr>.
+*merch segment needs finished.
+*look into animations for webpage.
+*shows table looks bland.
+
 </FRONT END>
 
 <DB>
-*Look into using Amazon AWS for relational database for items and orders.
+*Automate the ID Primary key.
 </DB>
