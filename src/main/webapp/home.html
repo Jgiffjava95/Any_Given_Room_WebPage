@@ -27,22 +27,22 @@
 <div class="show-bg text-center text-white">
 	<h1 class="">Come See Us</h1>
 	<div class="container">
-		<div class="card cardBG">
+		<div class="card card-bg">
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-6 my-auto">
 						<img class="showPoster" ng-src="{{showForHomePage.showImage}}">
 					</div>
 					<div class="col-sm-6 my-auto">
-						<h1 class="mb-0">When</h1>
+						<h1 class="mb-0 Pacifico">When</h1>
 						<span class="line"></span>
 						<p>{{showForHomePage.showDate}}</p>
 
-						<h1 class="mb-0">Where</h1>
+						<h1 class="mb-0 Pacifico">Where</h1>
 						<span class="line"></span>
 						<p>{{showForHomePage.showLocation}}</p>
 
-						<h1 class="mb-0">Price</h1>
+						<h1 class="mb-0 Pacifico">Price</h1>
 						<span class="line"></span>
 						<p>${{showForHomePage.entryPrice}} Contact us on facebook for
 							tickets!</p>
@@ -69,27 +69,36 @@
 	</div>
 </div>
 
-<div class="merchHomeBG text-center">
+<div class="merch-bg text-white text-center">
 	<div class="container">
-		<div class="row">
+		<div class="card card-bg">
+			<div class="card-body">
+				<div class="row">
 
-			<div v>
-				<img class="showPoster merchPosterOutline"
-					src="images/Merch Demo.jpg">
 
-			</div>
 
-			<div class="col-sm-6">
-				<h1>Purchase Some Drip</h1>
-				<a class="w3-button w3-white my-3" href="#!merch">View Merch
-					Store</a>
+					<div class="col-sm-6 my-auto text-center">
+						<img class="showPoster merchPosterOutline my-auto"
+							src="images/Merch-decal.png">
+
+					</div>
+
+					<div class="col-sm-6 my-auto">
+						<h1 class="inline-block Pacifico">Buy tickets or checkout some merch!</h1>
+						<div class="inline">
+							<a class="w3-button my-3 border-white-2px" href="#!merch">Merch Store</a>
+							<a class="w3-button my-3 border-white-2px" href="#!tickets">Buy
+								Tickets</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="container-fluid">
-	<div class="row">
+	<div class="row row-eq-height">
 		<div class="col-sm-6 text-center music-bg">
 			<div class="iframe-container my-auto">
 				<div class="iframe-holder">
@@ -99,21 +108,22 @@
 			</div>
 		</div>
 		<div class="col-sm-6 mail-bg text-black">
-			<h1>Subscribe to our Mailing List!</h1>
-			<p>Sign up and stay up to date with anything Any Given Room! By
-				signing up you will receive a 10% discount on our merch for life!
-				And if you get tired of us? Cancel your subscription at any time.
-			<p>
-				<span class="text-danger"
-					ng-show="subForm.subInput.$touched && subForm.subInput.$invalid"><b>Email
-						field cannot be empty.</b></span>
-			<form name="subForm">
-				<div class="form-group my-3">
-					<input type="text" name="subInput" class="form-control"
-						placeholder="Enter email" ng-model="mailForm.email" required>
+
+			<div class="container">
+				<div class="card contact-card">
+					<div class="card-body">
+						<h1>Subscribe to our Mailing List!</h1>
+						<form name="subForm">
+							<div class="form-group my-3">
+								<input type="text" name="subInput"
+									class="form-control contact-input" placeholder="Enter email"
+									ng-model="mailForm.email" required>
+							</div>
+							<a class="w3-button w3-black w3-border my-3" type="submit"
+								ng-click="subscribe()">Subscribe</a>
+						</form>
+					</div>
 				</div>
-				<a class="w3-button w3-black w3-border my-3" type="submit"
-					ng-click="subscribe()">Subscribe</a>
-			</form>
+			</div>
 		</div>
 	</div>
